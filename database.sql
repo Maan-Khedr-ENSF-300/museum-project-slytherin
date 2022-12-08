@@ -236,6 +236,11 @@ CREATE TABLE BORROWED (
 	foreign key(collectionName) REFERENCES COLLECTIONS(collectionName)
 
 );
+INSERT INTO BORROWED (id, collectionName, dateBorrowed, dateReturned, rent )
+VALUES
+('0015','United States','1899','2000','500'),
+('0016','India', 1951,'1970','50000'),
+('0017','Egypt', 1911,'2001','590');
 
 
 DROP ROLE IF EXISTS databaseAdmin@localhost, guestAccess@localhost, modifier@localhost;
