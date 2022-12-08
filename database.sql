@@ -145,3 +145,27 @@ CREATE TABLE BORROWED (
 );
 
 
+DROP ROLE IF EXISTS databaseAdmin@localhost, guestAccess@localhost, modifier@localhost;
+
+CREATE ROLE databaseAdmin@localhost, guestAccess@localhost, modifier@localhost;
+GRANT ALL PRIVILEGES ON museumFp.*TO databaseAdmin@localhost;
+GRANT Select ON museumFp.* TO guestAccess@localhost;
+GRANT Select ON	museumFp.* TO modifier@localhost;
+GRANT Insert ON museumFp.*	TO modifier@localhost;
+GRANT Update ON museumFp.*	TO modifier@localhost;
+
+
+DROP USER IF EXISTS adminUser@localhost;
+DROP USER IF EXISTS guestUser@localhost;
+DROP USER IF EXISTS dataEntryUser@localhost;
+
+CREATE USER adminUser@localhost IDENTIFIED  BY 'passcodeAdmin';
+CREATE USER guestUser@localhost;
+CREATE USER	dataEntryUser@localhost IDENTIFIED  BY 'passcodeModify';
+GRANT databaseAdmin@localhost TO adminUser@localhost;
+GRANT guestAccess@localhost to guestUser@localhost;
+GRANT	modifier@localhost	TO	dataEntryUser@localhost;
+
+SET DEFAULT ROLE ALL TO adminUser@localhost;
+SET DEFAULT ROLE ALL TO guestUser@localhost;
+SET DEFAULT ROLE ALL TO dataEntryUser@localhost;
