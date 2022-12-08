@@ -50,7 +50,25 @@ CREATE TABLE ART_OBJECT (
 	primary key (id),
 	foreign key (artistName) REFERENCES ARTIST(artistName)
 );
-
+INSERT INTO ART_OBJECT (id, artistName, year_, title, descr, country, epoch)
+VALUES
+('0001','Benedetto da Rovezzano','1554','Angel Bearing Candlestick', ' SCULPTUREure of a person holding a candlestick', 'Italy', 'Renaissance'),
+('0002','Francis Albert','1547','Field Armor of King Henry VIII of England',' it was probably worn by the king during his last military campaign ', 'England', 'Renaissance'),
+('0003','Jacob Halder','1608','Armor Garniture of George Clifford',' A favorite of Queen Elizabeth','England', 'Renaissance'),
+('0004','Hieronymus Bosch','1510','The christ Child passing the Wine', 'The christ Child passing the Wine', 'Netherlands', 'Renaissance'),
+('0005','Joris Hoefnagel','1575','Nosuch Palace from the south', 'Nosuch Palace from the south ', 'Austria', 'Renaissance'),
+('0006','Pablo Picasso','1914','The Absinthe Glass','Picasso''s life-size rendering of a glass of alcohol was shocking for its banality.', 'Spanish', 'Modern'),
+('0007','Affabel Partidge','1579','Tankard','No description', 'England', 'Renaissance'),
+('0008','Alphonso Davies','1781','Sandglass', ' A sandglass, more commonly referred to as an hour glass, was an important tool used in 18th-century sailing, the era of the Betsy, a ship scuttled in the York River by the British at Yorktown in 1781.', 'England', 'Post-Renaissance'),
+('0009','Georges Braque','1923','Fruit Dish and Glass', ' According to Braque, this was his first papier collé, created in September 1912 ', 'France', 'Modern'),
+('0010','Robert Pruitt','2019','Birth and Rebirth and Rebirth', 'Painting of woman', 'American', 'Modern'),
+('0011','Juan Gris','1910','Still Life: The Table', ' A book lies open to a verifiable page, but the hefty volume is pure illusion.', 'Spain', 'Modern'),
+('0012','Kylian Mbappe','1735','Desert Plate', ' The trompe l’oeil motif of a print attached to wood planking by nails or sealing wax became so popular that during the second half of the eighteenth century many factories imitated it on tableware.', 'France', 'Modern'),
+('0013','Woody de Othello','2021','Applying Pressure', 'Vase on Table', 'American', 'Modern'),
+('0014','Jean Liotard','1747','Trompe I’Oeil', ' Significantly, the imagery of the reliefs is derived from paintings ', 'Switzerland', 'Renaissance'),
+('0015','Goncalo Ramos','1747','Villi(Kongo)', 'Description is not available', 'Portugal', 'Modern'),
+('0016','Collin Rhoades','1849','Merchant Jug', 'No description available', 'America', 'Renaissance'),
+('0017','Antoine-Louis Barye','1832','Lion au serpent', 'Lion with a snake', 'France', 'Modern');
 
 
 
