@@ -84,7 +84,15 @@ CREATE TABLE PAINTING (
 	foreign key (id) REFERENCES ART_OBJECT(id)
 	
 );
-
+INSERT INTO PAINTING (id, paint, materialUsed, style)
+VALUES
+('0001','water','watercolor','modern'),
+('0002','Oil','wood','modern'),
+('0003','silicate','Canvas','modern'),
+('0004','Oil','Oil on paper','Abstract'),
+('0005','enamel','oil on canvas','Realistic'),
+('0006','latex','wood','Abstract'),
+('0007','Leaf Gliding','wood','Realistic');
 
 
 
