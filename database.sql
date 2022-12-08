@@ -14,7 +14,25 @@ CREATE TABLE ARTIST (
 	
 );
 
-
+INSERT INTO ARTIST(artistName, DoB, DofDeath, country, epoch, style, descr)
+VALUES
+('Benedetto da Rovezzano','1474','1567','Italy','Renaissance','SCULPTUREures and Statues', ' was an Italian architect and SCULPTUREor who worked mainly in Florence'),
+('Francis Albert','1509','1567','England', 'Renaissance', 'Merchant of SCULPTUREures', ' licensed by Henry to import luxury goods, including armor, into England for sale. '),
+('Jacob Halder','1557','1609','Germany','Renaissance', 'German Armourer', ' He succeeded John Kelte as Master Workman in 1576'),
+('Hieronymus Bosch','1450','1516','Netherlands', 'Renaissance', 'Dutch Painting', ' A truly unique figure in Dutch painting '),
+('Joris Hoefnagel','1542','1601','Austria', 'Post-Renaissance', 'Natural History Subjects', ' He is noted for his illustrations of natural history subjects '),
+('Pablo Picasso','October 25, 1881','April 8, 1973', 'Spain', 'Modern', 'Abstract', 'One of the most influential artists of the 20th century'),
+('Affabel Partidge','1540','1610', 'England', 'Modern', 'Goldsmith', ' He worked at the sign of the Black Bull in Cheapside.'),
+('Robert Pruitt','1975',null, 'American', 'Modern', 'Realistic', 'Known for his figurative drawings'),
+('Alphonso Davies','1754','1810', 'England', 'Modern', 'Abstract', ' evidence of at least two different sandglasses, each telling a different story.'),
+('Georges Braque','1882','1963', 'France', 'Modern', 'Collagist Painter', ' His most notable contributions were in his alliance with fauvism '),
+('Woody de Othello','1991',null, 'American', 'Modern', 'Abstract', 'American ceramicist and painter'),
+('Juan Gris','1887','1927', 'Spain', 'Renaissance', 'Artistic Genre Painter', ' Closely connected to the innovative artistic genre Cubism, his works are among the movements most distinctive.'),
+('Kylian Mbappe',null, null, null, null,'Realistic','Random Value as the artist cannot be identified'),
+('Jean Liotard','December 22, 1702', 'June 12, 1789', 'Switzerland', 'Modern','Renaissance',' He is best known for his portraits in pastel, and for the works from his stay in Turkey. '),
+('Goncalo Ramos',null, null, 'Portugal', 'Modern','Modern',' Random value as the artist is not found '),
+('Collin Rhoades','1826', '1869', 'America', 'Renaissance','Renaissance',' Random Value as description is not found '),
+('Antoine-Louis Barye','1826', '1869', 'America', 'Renaissance','Renaissance',' Random Value as description is not found ');
 
 
 
