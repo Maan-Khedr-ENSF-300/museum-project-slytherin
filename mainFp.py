@@ -37,3 +37,49 @@ def main():
                 dataEntry(cursor,cnx)
             elif sel=='3':
                 guestConsol(cursor,cnx)
+
+def dataEntry(cursor,cnx):
+    print("Choose:")
+    print("1- Search the database")
+    print("2- Insert Data")
+    print("3- Delete Data")
+    print("Function Not Yet complete")
+
+    
+
+def guestConsol(cursor,cnx):
+
+    sel3=1
+    print("WELCOME TO THE GUEST CONSOLE, HERE YOU CAN ACCESS THE DATABASE")
+    while sel3:
+        
+        print("FIRST TYPE IN THE COLUMNS YOU NEED TO SEE OR * FOR ALL COLUMNS OR PRESS 1 FOR HELP")
+        sel1=   input(" ")
+        if sel1 =='1':
+            helper()
+        print("NOW ENTER THE DATABASE TO ACCESS THE COLUMNS FROM")
+        print("PRESS 1 TO GET HELP")
+        sel2 = input()
+
+        sel3=input("press 1 to continue or 0 to exit")
+
+        cursor.execute("SELECT * FROM ART_OBJECT;")
+        cnx.commit()
+        myresult = cursor.fetchall()
+
+        cursor.execute("SELECT " + sel1 + " FROM " + sel2 + " ; ")
+        cnx.commit()
+        myresult = cursor.fetchall()
+        print("\n")
+
+        for x in myresult:
+            for y in x:
+                print( y )
+            print("\n")
+
+def helper():
+    pass
+
+
+if _name_ == "_main_":
+    main()
