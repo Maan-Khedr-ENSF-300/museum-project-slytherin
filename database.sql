@@ -186,6 +186,11 @@ CREATE TABLE  COLLECTIONS(
 	
 	primary key (collectionName)
 );
+INSERT INTO COLLECTIONS(collectionName, collectionType, descr, address, contactNumber, contactPerson)
+VALUES
+('United States','nation','Random', null,null,null),
+('India','nation','Random', null,null,null),
+('Egypt','nation','Random', null,null,null);
 
 
 
