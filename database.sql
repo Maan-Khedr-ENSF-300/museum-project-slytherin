@@ -156,7 +156,22 @@ CREATE TABLE EXHIBITIONS (
 	
 );
 
+INSERT INTO EXHIBITIONS (id, exhibition, startDate, endDate)
+VALUES
+('0001','The Tudors: Art and Majesty in Renaissance England', '2021-04-11', '2022-05-11'),
+('0002','The Tudors: Art and Majesty in Renaissance England','2021-14-11', '2022-05-11'),
+('0003','The Tudors: Art and Majesty in Renaissance England','2021-14-11', '2022-05-11'),
+('0004','The Tudors: Art and Majesty in Renaissance England','2021-14-11', '2022-05-11'),
+('0005','The Tudors: Art and Majesty in Renaissance England','2021-14-11', '2022-05-11'),
+('0006','The Tudors: Art and Majesty in Renaissance England','2021-14-11', '2022-05-11'),
 
+('0007',"Cubism and the Trompe l'Oeil Tradition", '2021-01-20', '2022-01-20'),
+('0008',"Cubism and the Trompe l'Oeil Tradition", '2021-01-20', '2022-01-20'),
+
+('0011','Hear Me Now: The Black Potters of Old Edgefield, South Carolina', '2021-07-09', '2022-02-09'),
+('0012','Hear Me Now: The Black Potters of Old Edgefield, South Carolina', '2021-07-09', '2022-02-09'),
+('0013','Hear Me Now: The Black Potters of Old Edgefield, South Carolina', '2021-07-09', '2022-02-09'),
+('0014','Hear Me Now: The Black Potters of Old Edgefield, South Carolina', '2021-07-09', '2022-02-09');
 
 
 
