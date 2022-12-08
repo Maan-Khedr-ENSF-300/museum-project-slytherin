@@ -111,7 +111,13 @@ primary key (id),
 foreign key (id) REFERENCES ART_OBJECT(id)
 	
  );
-
+INSERT INTO SCULPTURE (id, material, height, weight, style)
+VALUES
+('0008','Bronze','34cm','11kg','Realistic'),
+('0009','wood','390cm','62kg', 'modern'),
+('0010','silver','225cm','345','Abstract'),
+('0011','copper','4.5cm',null, 'Realistic'),
+('0012','stone','128.8cm','34.5kg', 'Abstract');
 
 
 DROP TABLE IF EXISTS OTHER_ART;
