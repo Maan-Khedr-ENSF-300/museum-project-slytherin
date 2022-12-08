@@ -130,8 +130,40 @@ def guestConsol(cursor,cnx):
             print("\n")
 
 def helper():
-    pass
+    print("HERE WE ARE TO HELP")
+    print("THE AVAILABLE TABLES ARE\n art_object\N artist\nborrowed\ncollections\nexhibitions\nother_art\npainting\npermanent_collections\nsculpture ")
+    print("ENTer THE TABLE NAME TO GET THE AVAILABLE COLMUNS")
+    sel=input()
+    if sel.lower=='art_object':
+        print("THE COLUMNS ARE AS FOLLOWS:")
+        print("id, artistName, year_, title, descr, epoch, country")
+    elif sel.lower=='artist':
+        print("THE COLUMNS ARE AS FOLLOWS:")
+        print("artistName, DoB, DofDeath, country, epoch, style, descr")
+    elif sel.lower=='borrowed':
+        print("THE COLUMNS ARE AS FOLLOWS:")
+        print("id, collectionName, dateBorrowed, dateReturned, rent")
+    elif sel.lower=='collections':
+        print("THE COLUMNS ARE AS FOLLOWS:")
+        print("collectionName, collectionType, descr, address, contactNumber, contactPerson")
+    elif sel.lower=='exhibitions':
+        print("THE COLUMNS ARE AS FOLLOWS:")
+        print("id, exhibition, startDate, endDate")
+    elif sel.lower=='other_art':
+        print("THE COLUMNS ARE AS FOLLOWS:")
+        print("id, arttype, style")
+    elif sel.lower=='painting':
+        print("THE COLUMNS ARE AS FOLLOWS:")
+        print("id, paint, materialUsed, style")
+    elif sel.lower=='permanent_collections':
+        print("THE COLUMNS ARE AS FOLLOWS:")
+        print("id, collectionName, dateAcquired, status_, cost")
+    elif sel.lower=='sculpture':
+        print("THE COLUMNS ARE AS FOLLOWS:")
+        print("id, material, height, weight, style")
+    else:
+        print("INVALID SELECTION")
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
