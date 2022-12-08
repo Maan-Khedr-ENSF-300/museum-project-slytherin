@@ -131,6 +131,13 @@ CREATE TABLE OTHER_ART (
 	foreign key (id) REFERENCES ART_OBJECT(id)
 	
 );
+INSERT INTO OTHER_ART (id, arttype, style)
+VALUES
+('0013','Sketch','Realistic'),
+('0014','Text', 'Written'),
+('0015','Wallpaper', 'modern'),
+('0016','Textile', 'modern'),
+('0017',null, 'Realistic');
 
 
 
