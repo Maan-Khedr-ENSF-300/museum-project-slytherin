@@ -38,6 +38,58 @@ def main():
             elif sel=='3':
                 guestConsol(cursor,cnx)
 
+def adminConsol(cursor,cnx):
+    print("Choose:")
+    print("1- Type in and use SQL Commands")
+    print("2- Run SQL Script")
+    print("3- Manage Users")
+    print("PRESS ANY OTHER KEY TO QUIT")
+    sel=input()
+
+    if sel =="1":
+        query=input("Enter SQL QUERY:")
+        cursor.execute(query)
+        queryL=cursor.fetchall()
+        for values in queryL:
+            print(values)
+        cnx.commit()
+
+    elif sel=="2":
+        scriptAddress=input("ENTER SQL SCRIPT ADDRESS:    ")
+        with open(scriptAddress, 'r') as f:
+            with cnx.cursor() as cursor:
+                cursor.execute(f.read(), multi=True)
+                cnx.commit()
+                print("SUCCESS")
+    
+    elif sel=="3":
+        print(" THE USER MANAGEMENT FUNCTION IS INCOMPLETE AND THERES NOT ENOUGH TIME FOR US TO ADD THOSE :(")
+        print("Press 1 to add a user")
+        sel2=input()
+        if sel2=='1':
+            print("ENTER THE USERNAME :   ")
+            userName=input()
+            print("ENTER THE PASSWORD :   ")
+            password=input()
+            print("CREATE USER "+ userName +"@localhost "+ " IDENTIFIED BY "+ password +" ;")
+            cursor.execute("CREATE USER "+ userName +" @localhost "+ " IDENTIFIED BY "+ "'" +password +"'"+" ;")
+            cnx.commit()
+            print( "PRESS 1 TO GRANT " + userName + " ADMIN ACCESS OR 2 TO GRANT DATA ENTRY ACCESS"  )
+            sel2=input()
+            if sel2==1:
+                cursor.execute("GRANT  databaseAdmin@localhost TO "+ userName + "@localhost; ")
+                cnx.commit()
+            elif sel2==2:
+                cursor.execute("GRANT modifier@localhost TO "+ userName + "@localhost; ")
+                cnx.commit()
+            else:
+                print("INVALID ENTRY")
+
+
+    else:
+         return 0
+
+
 def dataEntry(cursor,cnx):
     print("Choose:")
     print("1- Search the database")
