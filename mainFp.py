@@ -27,10 +27,8 @@ def main():
             else:
                 print(err)
         else:
-            print("Success")
             inpt=0
             cursor = cnx.cursor(buffered=True)
-            print("12")
             if sel=='1':
                 adminConsol(cursor,cnx)
             elif sel=='2':
@@ -39,51 +37,55 @@ def main():
                 guestConsol(cursor,cnx)
 
 def adminConsol(cursor,cnx):
-    print("Choose:")
-    print("1- Type in and use SQL Commands")
-    print("2- Run SQL Script")
-    print("3- Manage Users")
-    print("PRESS ANY OTHER KEY TO QUIT")
-    sel=input()
+    while(1):
+        print("Choose:")
+        print("1- Type in and use SQL Commands")
+        print("2- Run SQL Script")
+        print("3- Manage Users")
+        print("PRESS ANY OTHER KEY TO QUIT")
+        sel=input()
 
-    if sel =="1":
-        query=input("Enter SQL QUERY:")
-        cursor.execute(query)
-        queryL=cursor.fetchall()
-        for values in queryL:
-            print(values)
-        cnx.commit()
-
-    elif sel=="2":
-        scriptAddress=input("ENTER SQL SCRIPT ADDRESS:    ")
-        with open(scriptAddress, 'r') as f:
-            with cnx.cursor() as cursor:
-                cursor.execute(f.read(), multi=True)
+        if sel =="1":
+            query=input("Enter SQL QUERY:")
+            cursor.execute(query)
+            queryL=cursor.fetchall()
+            for values in queryL:
+                print(values)
                 cnx.commit()
-                print("SUCCESS")
+
+        elif sel=="2":
+            scriptAddress=input("ENTER SQL SCRIPT ADDRESS:   (WITHOUT "" or '') ")
+            with open(scriptAddress, 'r') as f:
+                with cnx.cursor() as cursor:
+                    cursor.execute(f.read(), multi=True)
+                    cnx.commit()
+                    print("SUCCESS")
+
     
-    elif sel=="3":
-        print(" THE USER MANAGEMENT FUNCTION IS INCOMPLETE AND THERES NOT ENOUGH TIME FOR US TO ADD THOSE :(")
-        print("Press 1 to add a user")
-        sel2=input()
-        if sel2=='1':
-            print("ENTER THE USERNAME :   ")
-            userName=input()
-            print("ENTER THE PASSWORD :   ")
-            password=input()
-            print("CREATE USER "+ userName +"@localhost "+ " IDENTIFIED BY "+ password +" ;")
-            cursor.execute("CREATE USER "+ userName +" @localhost "+ " IDENTIFIED BY "+ "'" +password +"'"+" ;")
-            cnx.commit()
-            print( "PRESS 1 TO GRANT " + userName + " ADMIN ACCESS OR 2 TO GRANT DATA ENTRY ACCESS"  )
+        elif sel=="3":
+            print(" THE USER MANAGEMENT FUNCTION IS INCOMPLETE AND THERES NOT ENOUGH TIME FOR US TO ADD THOSE :(")
+            print("Press 1 to add a user")
             sel2=input()
-            if sel2==1:
-                cursor.execute("GRANT  databaseAdmin@localhost TO "+ userName + "@localhost; ")
+            if sel2=='1':
+                print("ENTER THE USERNAME :   ")
+                userName=input()
+                print("ENTER THE PASSWORD :   ")
+                password=input()
+                print("CREATE USER "+ userName +"@localhost "+ " IDENTIFIED BY "+ password +" ;")
+                cursor.execute("CREATE USER "+ userName +" @localhost "+ " IDENTIFIED BY "+ "'" +password +"'"+" ;")
                 cnx.commit()
-            elif sel2==2:
-                cursor.execute("GRANT modifier@localhost TO "+ userName + "@localhost; ")
-                cnx.commit()
-            else:
-                print("INVALID ENTRY")
+                print( "PRESS 1 TO GRANT " + userName + " ADMIN ACCESS OR 2 TO GRANT DATA ENTRY ACCESS"  )
+                sel2=input()
+                if sel2==1:
+                    cursor.execute("GRANT  databaseAdmin@localhost TO "+ userName + "@localhost; ")
+                    cnx.commit()
+                elif sel2==2:
+                    cursor.execute("GRANT modifier@localhost TO "+ userName + "@localhost; ")
+                    cnx.commit()
+                else:
+                    print("INVALID ENTRY")
+        else:
+            return 0
 
 
     else:
@@ -100,20 +102,16 @@ def dataEntry(cursor,cnx):
     
 
 def guestConsol(cursor,cnx):
-
     sel3=1
     print("WELCOME TO THE GUEST CONSOLE, HERE YOU CAN ACCESS THE DATABASE")
     while sel3:
-        
-        print("FIRST TYPE IN THE COLUMNS YOU NEED TO SEE OR * FOR ALL COLUMNS OR PRESS 1 FOR HELP")
-        sel1=   input(" ")
-        if sel1 =='1':
+        print("PRESS 1 FOR HELP OR RETURN TO CONTINUE")
+        if (input()=='1'):
             helper()
+        print("FIRST TYPE IN THE COLUMNS YOU NEED TO SEE OR * FOR ALL COLUMNS")
+        sel1=   input(" ")
         print("NOW ENTER THE DATABASE TO ACCESS THE COLUMNS FROM")
-        print("PRESS 1 TO GET HELP")
         sel2 = input()
-
-        sel3=input("press 1 to continue or 0 to exit")
 
         cursor.execute("SELECT * FROM ART_OBJECT;")
         cnx.commit()
@@ -128,37 +126,39 @@ def guestConsol(cursor,cnx):
             for y in x:
                 print( y )
             print("\n")
+        sel3=input("PRESS 1 to CONTINUE")
+
 
 def helper():
     print("HERE WE ARE TO HELP")
-    print("THE AVAILABLE TABLES ARE\n art_object\N artist\nborrowed\ncollections\nexhibitions\nother_art\npainting\npermanent_collections\nsculpture ")
+    print("THE AVAILABLE TABLES ARE\nart_object\nartist\nborrowed\ncollections\nexhibitions\nother_art\npainting\npermanent_collections\nsculpture ")
     print("ENTer THE TABLE NAME TO GET THE AVAILABLE COLMUNS")
     sel=input()
-    if sel.lower=='art_object':
+    if sel=='art_object':
         print("THE COLUMNS ARE AS FOLLOWS:")
         print("id, artistName, year_, title, descr, epoch, country")
-    elif sel.lower=='artist':
+    elif sel=='artist':
         print("THE COLUMNS ARE AS FOLLOWS:")
         print("artistName, DoB, DofDeath, country, epoch, style, descr")
-    elif sel.lower=='borrowed':
+    elif sel=='borrowed':
         print("THE COLUMNS ARE AS FOLLOWS:")
         print("id, collectionName, dateBorrowed, dateReturned, rent")
-    elif sel.lower=='collections':
+    elif sel=='collections':
         print("THE COLUMNS ARE AS FOLLOWS:")
         print("collectionName, collectionType, descr, address, contactNumber, contactPerson")
-    elif sel.lower=='exhibitions':
+    elif sel=='exhibitions':
         print("THE COLUMNS ARE AS FOLLOWS:")
         print("id, exhibition, startDate, endDate")
-    elif sel.lower=='other_art':
+    elif sel=='other_art':
         print("THE COLUMNS ARE AS FOLLOWS:")
         print("id, arttype, style")
-    elif sel.lower=='painting':
+    elif sel=='painting':
         print("THE COLUMNS ARE AS FOLLOWS:")
         print("id, paint, materialUsed, style")
-    elif sel.lower=='permanent_collections':
+    elif sel=='permanent_collections':
         print("THE COLUMNS ARE AS FOLLOWS:")
         print("id, collectionName, dateAcquired, status_, cost")
-    elif sel.lower=='sculpture':
+    elif sel=='sculpture':
         print("THE COLUMNS ARE AS FOLLOWS:")
         print("id, material, height, weight, style")
     else:
