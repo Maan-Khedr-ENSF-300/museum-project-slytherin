@@ -204,6 +204,22 @@ CREATE TABLE PERMANENT_COLLECTIONS(
 	primary key (id),
 	foreign key(id) REFERENCES ART_OBJECT(id)
 );
+INSERT INTO PERMANENT_COLLECTIONS (id, collectionName, dateAcquired, status_, cost)
+VALUES
+('0001','Angel Bearing Candlestick', '1997-09-24',' Display','$100'),
+('0002','Field Armor of King Henry VIII of England', '2003','Display',null),
+('0003','Armor Garniture of George Clifford', '2002-04-03',' Display','$80'),
+('0004','The christ Child passing the Wine', '1945','Display','$233'),
+('0005','Nosuch Palace from the south','2007',' Display',null),
+('0006','The Absinthe Glass', '2002','Display','$2000'),
+('0007','	Tankard,', '2001','Display','$34'),
+('0008','Sandglass', '1995','Display','$200'),
+('0009','Fruit Dish and Glass', '2020','Display',null),
+('0010','Birth and Rebirth and Rebirth', '1996','Display','$234'),
+('0011','Still Life: The Table', '2014','Display',null),
+('0012','Desert Plate', '2014','Display',null),
+('0013','Applying Pressure', '2021','Display',null),
+('0014','Trompe I’Oeil', '1986','Display','$2344');
 
 
 
